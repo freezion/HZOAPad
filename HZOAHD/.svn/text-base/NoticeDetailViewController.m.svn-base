@@ -1,0 +1,75 @@
+//
+//  NoticeDetailViewController.m
+//  HZOAHD
+//
+//  Created by Gong Lingxiao on 12-8-6.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import "NoticeDetailViewController.h"
+
+@interface NoticeDetailViewController ()
+
+@end
+
+@implementation NoticeDetailViewController
+@synthesize scrollView;
+@synthesize noticeTitle;
+@synthesize sender;
+@synthesize dateTime;
+@synthesize context;
+@synthesize noticeType;
+@synthesize notice;
+@synthesize attchmentButton;
+@synthesize frontFlag;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    if ([frontFlag isEqualToString:@""] || frontFlag == nil) {        
+    } else {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                                 initWithBarButtonSystemItem:
+                                                 UIBarButtonSystemItemCancel target:self
+                                                 action:@selector(cancelClick:)];
+    }
+    self.noticeTitle.text = notice.title;
+    self.sender.text = notice.sender;
+    self.dateTime.text = notice.date;
+    self.noticeType.text = notice.typeName;
+    NSString *contextStr = notice.context;
+    self.context.text = contextStr;
+    self.context.editable = NO;
+    if ([notice.fileId isEqualToString:@""] || notice.fileId == nil) {
+        attchmentButton.hidden = YES;
+    } else {
+        attchmentButton.hidden = NO;
+    }
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+- (void)cancelClick:(id) sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+@end

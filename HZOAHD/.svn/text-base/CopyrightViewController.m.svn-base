@@ -1,0 +1,51 @@
+//
+//  CopyrightViewController.m
+//  HZOAHD
+//
+//  Created by Gong Lingxiao on 12-11-19.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import "CopyrightViewController.h"
+
+@interface CopyrightViewController ()
+
+@end
+
+@implementation CopyrightViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithBarButtonSystemItem:
+                                             UIBarButtonSystemItemCancel target:self
+                                             action:@selector(cancelClick:)];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)cancelClick:(id) sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)gotoUrl:(id)sender {
+    NSURL* url = [[NSURL alloc] initWithString:@"http://www.freedomcz.com.cn/"];
+    [[ UIApplication sharedApplication]openURL:url];
+}
+
+@end

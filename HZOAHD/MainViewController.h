@@ -1,0 +1,82 @@
+//
+//  MainViewController.h
+//  HZOAHD
+//
+//  Created by Gong Lingxiao on 12-8-29.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
+#import "LoginViewController.h"
+#import "UserKeychain.h"
+#import "MBProgressHUD.h"
+#import "NoticeDetailViewController.h"
+#import "MailDetailViewController.h"
+#import "UIGlossyButton.h"
+
+@interface MainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MBProgressHUDDelegate> {
+    UITableView *noticeTableView;
+    UITableView *eventTableView;
+    UITableView *mailTableView;
+    UITableView *mailSenderTableView;
+    UITableView *memberTableView;
+    UIButton *calendarButton;
+    UIButton *noticeButton;
+    UIButton *emailButton;
+    UIButton *folderButton;
+    UIButton *changeLoginButton;
+    UIButton *rightsButton;
+    EKEventStore *eventStore;
+    EKCalendar *defaultCalendar;
+    NSArray *eventList;
+    NSMutableArray *mailList;
+    NSMutableArray *senderMailList;
+    NSMutableArray *memberList;
+    MBProgressHUD *HUD;
+    BOOL _reloading;
+    UIButton *refreshButton;
+    UILabel *titleLabel;
+    UITextField *idTextField;
+    UITextField *pwdTextField;
+    UIGlossyButton *loginButton;
+    UIImageView *calendarImage;
+    UIImageView *emailImage;
+    UIImageView *noticeImage;
+}
+
+@property (nonatomic, retain) IBOutlet UITableView *memberTableView;
+@property (nonatomic, retain) IBOutlet UITableView *noticeTableView;
+@property (nonatomic, retain) IBOutlet UITableView *eventTableView;
+@property (nonatomic, retain) IBOutlet UITableView *mailTableView;
+@property (nonatomic, retain) IBOutlet UITableView *mailSenderTableView;
+@property (nonatomic, retain) IBOutlet UIImageView *calendarImage;
+@property (nonatomic, retain) IBOutlet UIImageView *emailImage;
+@property (nonatomic, retain) IBOutlet UIImageView *noticeImage;
+@property (nonatomic, strong) NSMutableArray *noticeList;
+@property (nonatomic, retain) NSMutableArray *memberList;
+@property (nonatomic, retain) EKEventStore *eventStore;
+@property (nonatomic, retain) EKCalendar *defaultCalendar;
+@property (nonatomic, retain) NSArray *eventList;
+@property (nonatomic, retain) NSMutableArray *mailList;
+@property (nonatomic, retain) NSMutableArray *senderMailList;
+@property (nonatomic, retain) IBOutlet UIButton *calendarButton;
+@property (nonatomic, retain) IBOutlet UIButton *noticeButton;
+@property (nonatomic, retain) IBOutlet UIButton *emailButton;
+@property (nonatomic, retain) IBOutlet UIButton *folderButton;
+@property (nonatomic, retain) IBOutlet UIButton *changeLoginButton;
+@property (nonatomic, retain) IBOutlet UIButton *rightsButton;
+@property (nonatomic, retain) IBOutlet UIButton *refreshButton;
+@property (nonatomic, retain) UITextField *idTextField;
+@property (nonatomic, retain) UITextField *pwdTextField;
+@property (nonatomic, retain) UIGlossyButton *loginButton;
+@property (nonatomic, retain) UILabel *titleLabel;
+
+-(IBAction) tabSelect:(id) sender;
+-(IBAction) showReLogin:(id) sender;
+-(IBAction) showCopyRights:(id) sender;
+-(IBAction) refreshAllTables:(id)sender;
+-(IBAction) logout:(id)sender;
+
+@end

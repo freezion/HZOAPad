@@ -1,0 +1,617 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD
+END
+main.m
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/main.m
+END
+changgong.jpeg
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/changgong.jpeg
+END
+AddNoticeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/AddNoticeViewController.h
+END
+UserKeychain.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/UserKeychain.h
+END
+CalendarRelationship.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CalendarRelationship.h
+END
+AddNoticeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/AddNoticeViewController.m
+END
+UserKeychain.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/UserKeychain.m
+END
+CalendarRelationship.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CalendarRelationship.m
+END
+Names.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Names.h
+END
+DeleteMailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/DeleteMailViewController.h
+END
+CheckCalendarViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CheckCalendarViewController.h
+END
+Names.m
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Names.m
+END
+CalendarViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CalendarViewController.h
+END
+CalendarCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CalendarCell.h
+END
+DeleteMailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/DeleteMailViewController.m
+END
+SystemConfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/SystemConfig.h
+END
+CheckCalendarViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CheckCalendarViewController.m
+END
+CalendarViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CalendarViewController.m
+END
+Contract.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Contract.h
+END
+EditCalendarViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/EditCalendarViewController.h
+END
+CalendarCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CalendarCell.m
+END
+NSUtil.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/NSUtil.h
+END
+ChooseEmployeeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ChooseEmployeeViewController.h
+END
+SystemConfig.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/SystemConfig.m
+END
+ChooseEventViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ChooseEventViewController.h
+END
+Notice.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Notice.h
+END
+Contract.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Contract.m
+END
+EditCalendarViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/EditCalendarViewController.m
+END
+NSUtil.m
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/NSUtil.m
+END
+ChooseEmployeeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ChooseEmployeeViewController.m
+END
+SendListViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/SendListViewController.h
+END
+Notice.m
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Notice.m
+END
+ChooseEventViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ChooseEventViewController.m
+END
+SendListViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/SendListViewController.m
+END
+SelectContactViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/SelectContactViewController.h
+END
+SelectContactViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/SelectContactViewController.m
+END
+NoticeDetailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/NoticeDetailViewController.h
+END
+LoginViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/LoginViewController.h
+END
+NoticeDetailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/NoticeDetailViewController.m
+END
+EventAlertViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/EventAlertViewController.h
+END
+Calendar.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Calendar.h
+END
+HZOAHD-Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/HZOAHD-Info.plist
+END
+LoginViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/LoginViewController.m
+END
+EventAlertViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/EventAlertViewController.m
+END
+MailListViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MailListViewController.h
+END
+Calendar.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Calendar.m
+END
+FileViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/FileViewController.h
+END
+Employee.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Employee.h
+END
+FileCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/FileCell.h
+END
+MailCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MailCell.h
+END
+MailListViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MailListViewController.m
+END
+FileViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/FileViewController.m
+END
+Employee.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Employee.m
+END
+FileCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/FileCell.m
+END
+SearchCustomerViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/SearchCustomerViewController.h
+END
+MailCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MailCell.m
+END
+UIButton+Property.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/UIButton+Property.h
+END
+ContactViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ContactViewController.h
+END
+AddMailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/AddMailViewController.h
+END
+SearchCustomerViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/SearchCustomerViewController.m
+END
+ContactCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ContactCell.h
+END
+HZOAHD-Prefix.pch
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/HZOAHD-Prefix.pch
+END
+UITabBarController.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/UITabBarController.h
+END
+UIButton+Property.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/UIButton+Property.m
+END
+AddMailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/AddMailViewController.m
+END
+ContactViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ContactViewController.m
+END
+ContactCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ContactCell.m
+END
+ChooseCustomerViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ChooseCustomerViewController.h
+END
+TmpMailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/TmpMailViewController.h
+END
+UITabBarController.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/UITabBarController.m
+END
+ChooseCustomerViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ChooseCustomerViewController.m
+END
+CopyrightViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CopyrightViewController.h
+END
+TmpMailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/TmpMailViewController.m
+END
+InfoPlist.strings
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/InfoPlist.strings
+END
+CopyrightViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/CopyrightViewController.m
+END
+MyFolderViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MyFolderViewController.h
+END
+AddCalendarViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/AddCalendarViewController.h
+END
+Mail.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Mail.h
+END
+EventTypeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/EventTypeViewController.h
+END
+ReturnMessageViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ReturnMessageViewController.h
+END
+MyFolderViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MyFolderViewController.m
+END
+HZOAHD20120918.ipa
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/HZOAHD20120918.ipa
+END
+AddCalendarViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/AddCalendarViewController.m
+END
+Mail.m
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Mail.m
+END
+EventTypeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/EventTypeViewController.m
+END
+ReturnMessageViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ReturnMessageViewController.m
+END
+Customer.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Customer.h
+END
+MailDetailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MailDetailViewController.h
+END
+Customer.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/Customer.m
+END
+MailDetailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MailDetailViewController.m
+END
+AppDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/AppDelegate.h
+END
+ChooseContractViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ChooseContractViewController.h
+END
+AppDelegate.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/AppDelegate.m
+END
+NoticeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/NoticeViewController.h
+END
+MyFolder.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MyFolder.h
+END
+NoticeCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/NoticeCell.h
+END
+ChooseContractViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/ChooseContractViewController.m
+END
+MainViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MainViewController.h
+END
+NoticeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/NoticeViewController.m
+END
+MyFolder.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MyFolder.m
+END
+NoticeCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/NoticeCell.m
+END
+MainViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/24/HZOAHD/HZOAHD/MainViewController.m
+END

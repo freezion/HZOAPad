@@ -1,0 +1,36 @@
+//
+//  AppDelegate.h
+//  HZOAHD
+//
+//  Created by Gong Lingxiao on 12-7-27.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <sqlite3.h>
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    UIWindow *window;
+    NSString *databasePath;
+    sqlite3 *hzoaDB;
+    NSString *calendarIdentifier;
+    NSString *calendarMessage;
+    NSString *noticeMessage;
+    NSString *emailMessage;
+    
+    NSString *activaFlag;
+}
+
+@property (strong, nonatomic) IBOutlet UIWindow *window;
+@property (strong, nonatomic) NSString *calendarIdentifier;
+@property (strong, nonatomic) NSString *deviceTokenNum;
+@property (strong, nonatomic) NSString *deviceType;
+@property (retain, nonatomic) NSString *calendarMessage;
+@property (retain, nonatomic) NSString *noticeMessage;
+@property (retain, nonatomic) NSString *emailMessage;
+
+@property (retain, nonatomic) NSString *activeFlag;
+
+@end

@@ -1,0 +1,84 @@
+//
+//  EventTypeViewController.m
+//  HZOAHD
+//
+//  Created by Gong Lingxiao on 12-9-14.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import "EventTypeViewController.h"
+
+@interface EventTypeViewController ()
+
+@end
+
+@implementation EventTypeViewController
+
+@synthesize selectedIndex;
+@synthesize delegate;
+@synthesize typeId;
+@synthesize typeName;
+@synthesize cellNormal;
+@synthesize cellHoliday;
+@synthesize cellMeeting;
+@synthesize cellVisiting;
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(backAction:)];
+    if (selectedIndex == 0) {
+        cellNormal.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else if (selectedIndex == 1) {
+        cellVisiting.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else if (selectedIndex == 2) {
+        cellHoliday.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else if (selectedIndex == 3) {
+        cellMeeting.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+- (void)backAction:(id) sender {
+    [delegate eventTypeViewController:self didSelectType:typeId withSelectIndex:selectedIndex withLabelTitle:typeName];
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (selectedIndex != NSNotFound)
+	{
+		UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
+    
+    selectedIndex = indexPath.row;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    typeId = [NSString stringWithFormat:@"%d", cell.tag];
+    typeName = cell.textLabel.text;
+}
+
+@end
