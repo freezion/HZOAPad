@@ -59,6 +59,7 @@ BOOL refreshFlag = YES;
 @synthesize qlViewController;
 @synthesize frequentContactButton;
 @synthesize showNewImage;
+@synthesize flag;
 //@synthesize calendarImage;
 //@synthesize emailImage;
 //@synthesize noticeImage;
@@ -95,7 +96,7 @@ BOOL refreshFlag = YES;
     [super viewDidLoad];
     [self getCurVersion];
     [self getCurPosition];
-	
+	flag = 999;
     UIImage *calendarImage = [[UIImage imageNamed:@"sytable"] resizableImageWithCapInsets:UIEdgeInsetsMake(10,6,10,6)];
     calendarImageView.image = calendarImage;
     emailImageView.image = calendarImage;
@@ -561,20 +562,29 @@ BOOL refreshFlag = YES;
 - (void)login {
     [idTextField resignFirstResponder];
     [pwdTextField resignFirstResponder];
-    //验证用户名 密码
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.dimBackground = YES;
-    [HUD setDelegate:self];
-    [HUD setLabelText:@"提交验证"];
-    [HUD showWhileExecuting:@selector(myLoginTask) onTarget:self withObject:nil animated:YES];
+    if (![self menu]) {
+        
+        NSArray *titles = @[@"主服务器",
+                            @"备用服务器",
+                            @"取消"];
+        _menu = [[MBButtonMenuViewController alloc] initWithButtonTitles:titles];
+        [_menu setDelegate:self];
+        [_menu setCancelButtonIndex:[[_menu buttonTitles]count]-1];
+    }
+    
+    [[self menu] showInView:[self view]];
 }
 
 - (void)myLoginTask {
     NSString *user = [idTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *pass = [pwdTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"UserCheck.asmx/loginUserCheckForIOS"];
+    NSString *serviceAddr = @"";
+    if (flag == 0) {
+        serviceAddr = WEBSERVICE_ADDRESS;
+    } else if (flag == 1){
+        serviceAddr = WEBSERVICE_ADDRESS2;
+    }
+    NSString *webserviceUrl = [serviceAddr stringByAppendingString:@"UserCheck.asmx/loginUserCheckForIOS"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     
     deviceType = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).deviceType;
@@ -629,6 +639,13 @@ BOOL refreshFlag = YES;
             [usernamepasswordKVPairs setObject:canRead forKey:KEY_READ_CONTRACT];
             [usernamepasswordKVPairs setObject:deviceTokenNum forKey:KEY_DEVICETOKEN];
             
+            if (flag == 0) {
+                [usernamepasswordKVPairs setObject:WEBSERVICE_ADDRESS forKey:KEY_WEBSERVICE_ADDRESS];
+                [usernamepasswordKVPairs setObject:FILE_ADDRESS forKey:KEY_FILE_ADDRESS];
+            } else if (flag == 1){
+                [usernamepasswordKVPairs setObject:WEBSERVICE_ADDRESS2 forKey:KEY_WEBSERVICE_ADDRESS];
+                [usernamepasswordKVPairs setObject:FILE_ADDRESS2 forKey:KEY_FILE_ADDRESS];
+            }
             //save session
             [UserKeychain save:KEY_LOGINID_PASSWORD data:usernamepasswordKVPairs];
             //9602320c06c5cd3c
@@ -922,6 +939,38 @@ BOOL refreshFlag = YES;
 
 - (void) viewWillAppear:(BOOL)animated {
     //[[qlViewController navigationItem] setRightBarButtonItem:nil];
+}
+
+#pragma mark - MBButtonMenuViewControllerDelegate
+
+- (void)buttonMenuViewController:(MBButtonMenuViewController *)buttonMenu buttonTappedAtIndex:(NSUInteger)index
+{
+    //
+    //  Hide the menu
+    //
+    
+    [buttonMenu hide];
+    [idTextField becomeFirstResponder];
+    //
+    //  Create a title
+    //
+    
+    //NSString *title = [[self menu] buttonTitles][index];
+    //验证用户名 密码]
+
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.dimBackground = YES;
+    [HUD setDelegate:self];
+    [HUD setLabelText:@"提交验证"];
+    [HUD showWhileExecuting:@selector(myLoginTask) onTarget:self withObject:nil animated:YES];
+    flag = index;
+}
+
+- (void)buttonMenuViewControllerDidCancel:(MBButtonMenuViewController *)buttonMenu
+{
+    [buttonMenu hide];
+    [idTextField becomeFirstResponder];
 }
 
 @end

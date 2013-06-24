@@ -19,11 +19,11 @@
 #import "FileViewController.h"
 #import "SystemConfig.h"
 #import <QuickLook/QuickLook.h>
-
+#import "MBButtonMenuViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface NewPageViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MBProgressHUDDelegate, QLPreviewControllerDataSource, QLPreviewControllerDelegate,CLLocationManagerDelegate> {
+@interface NewPageViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MBProgressHUDDelegate, QLPreviewControllerDataSource, QLPreviewControllerDelegate,CLLocationManagerDelegate, MBButtonMenuViewControllerDelegate> {
     UIImageView *bgTopImageView;
     UIImageView *bgBottomImageView;
     UIImageView *calendarImageView;
@@ -56,6 +56,7 @@
     NSString *deviceTokenNum;
     NSString *model;
     NSString *location;
+    int flag;
     
 }
 
@@ -91,6 +92,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *rightsButton;
 @property (nonatomic, retain) IBOutlet UIImageView *showNewImage;
 @property (nonatomic, retain) IBOutlet UIButton *frequentContactButton;
+@property (nonatomic, strong) MBButtonMenuViewController *menu;
+@property (nonatomic) int flag;
 //@property (nonatomic, retain) IBOutlet UIImageView *calendarImage;
 //@property (nonatomic, retain) IBOutlet UIImageView *emailImage;
 //@property (nonatomic, retain) IBOutlet UIImageView *noticeImage;

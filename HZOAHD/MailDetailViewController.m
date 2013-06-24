@@ -205,7 +205,7 @@ NSString *str0;
          NSString *fileId = [arrayFileIds objectAtIndex:i];
          NSString *fileName = [arrayFileNames objectAtIndex:i];
          [actionSheet addButtonWithTitle:fileName block:^{
-             NSString *strUrl = [FILE_ADDRESS stringByAppendingString:fileId];
+             NSString *strUrl = [[NSUtil chooseFileRealm] stringByAppendingString:fileId];
              NSLog(@"strUrl ======= %@", strUrl);
              NSURL *URL = [NSURL URLWithString:strUrl];
              SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:URL];
@@ -264,7 +264,7 @@ NSString *str0;
 - (IBAction)launchSafari:(id)sender {
     NSString *strUrl;
     UIButton *buttonT = (UIButton *) sender;
-    strUrl = [FILE_ADDRESS stringByAppendingString:buttonT.property];
+    strUrl = [[NSUtil chooseFileRealm] stringByAppendingString:buttonT.property];
     NSLog(@"strUrl ======= %@", strUrl);
     NSURL *URL = [NSURL URLWithString:strUrl];
 	SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:URL];

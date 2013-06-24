@@ -588,7 +588,7 @@
     NSString *user = [idTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *pass = [pwdTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"UserCheck.asmx/loginUserCheckForIOS"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"UserCheck.asmx/loginUserCheckForIOS"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     
     NSString *deviceType = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).deviceType;

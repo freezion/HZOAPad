@@ -16,6 +16,7 @@
 		33428A4116032D7300F6C143 /* EditCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33428A4016032D7300F6C143 /* EditCalendarViewController.m */; };
 		3349BDC21681D60800D49E69 /* application_exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 3349BDC11681D60700D49E69 /* application_exit.png */; };
 		337FB249160078CB00EEC762 /* TITokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = 337FB248160078CB00EEC762 /* TITokenField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		339256BB177842FA009DF1C4 /* MBButtonMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339256BA177842FA009DF1C4 /* MBButtonMenuViewController.m */; };
 		33B1195516684C0B002E0DEC /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B1195416684C0B002E0DEC /* exit.png */; };
 		33B1195816684CE2002E0DEC /* gnome_session_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B1195716684CE2002E0DEC /* gnome_session_logout.png */; };
 		33B26E661667023300E61552 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B26E5C1667023300E61552 /* UIBarButtonItem+WEPopover.m */; };
@@ -268,6 +269,8 @@
 		3349BDC11681D60700D49E69 /* application_exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = application_exit.png; sourceTree = "<group>"; };
 		337FB247160078CB00EEC762 /* TITokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenField.h; sourceTree = "<group>"; };
 		337FB248160078CB00EEC762 /* TITokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITokenField.m; sourceTree = "<group>"; };
+		339256B9177842FA009DF1C4 /* MBButtonMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButtonMenuViewController.h; sourceTree = "<group>"; };
+		339256BA177842FA009DF1C4 /* MBButtonMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButtonMenuViewController.m; sourceTree = "<group>"; };
 		33B1195416684C0B002E0DEC /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit.png; sourceTree = "<group>"; };
 		33B1195716684CE2002E0DEC /* gnome_session_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gnome_session_logout.png; sourceTree = "<group>"; };
 		33B26E5B1667023300E61552 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
@@ -638,6 +641,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		339256B8177842C4009DF1C4 /* MBMenu */ = {
+			isa = PBXGroup;
+			children = (
+				339256B9177842FA009DF1C4 /* MBButtonMenuViewController.h */,
+				339256BA177842FA009DF1C4 /* MBButtonMenuViewController.m */,
+			);
+			name = MBMenu;
+			sourceTree = "<group>";
+		};
 		33C3F68515FED88E00901A6A = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +671,7 @@
 		33C3F69315FED88E00901A6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				339256B8177842C4009DF1C4 /* MBMenu */,
 				33CEBCAF16227E5E00B4E49D /* GCRetractable */,
 				33CD1E591606B92E0074EC50 /* JSToken */,
 				33C3F7DE15FEDB9F00901A6A /* SBJson */,
@@ -1457,6 +1470,7 @@
 				3DE96D3F16BF95780024DCDF /* ChooseMostViewController.m in Sources */,
 				3D1135DB16E47E5B0003DEEF /* SBTableAlert.m in Sources */,
 				3DFF8CE116EECBBB001B4490 /* PublicCalendarViewController.m in Sources */,
+				339256BB177842FA009DF1C4 /* MBButtonMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

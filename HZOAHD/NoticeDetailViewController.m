@@ -86,7 +86,7 @@
 
 - (IBAction)launchSafari:(id)sender {
     NSString *strUrl;
-    strUrl = [FILE_ADDRESS stringByAppendingString:self.fileId];
+    strUrl = [[NSUtil chooseFileRealm] stringByAppendingString:self.fileId];
     NSLog(@"strUrl ======= %@", strUrl);
     NSURL *URL = [NSURL URLWithString:strUrl];
 	SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:URL];
@@ -128,7 +128,7 @@
     self.fileId = [arrayFileIds objectAtIndex:indexPath.row];
     
     NSString *strUrl;
-    strUrl = [FILE_ADDRESS stringByAppendingString:self.fileId];
+    strUrl = [[NSUtil chooseFileRealm] stringByAppendingString:self.fileId];
     NSLog(@"strUrl ======= %@", strUrl);
     NSURL *URL = [NSURL URLWithString:strUrl];
 	SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:URL];

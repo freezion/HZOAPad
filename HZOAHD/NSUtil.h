@@ -25,5 +25,7 @@
 + (NSString *) parserStringToCustomString:(NSString *) currentDateStr withParten:(NSString *) parten;
 + (NSString *) parserStringToCustomStringAdv:(NSString *) currentDateStr withParten:(NSString *) parten  withToParten:(NSString *) toParten;
 + (NSDate *) parserStringToAppendDate:(NSString *) currentDateStr withParten:(NSString *) parten;
++ (NSString *) chooseRealm;
++ (NSString *) chooseFileRealm;
 
 @end
