@@ -11,12 +11,15 @@
 #import "MailCell.h"
 #import "Mail.h"
 
-@interface DeleteMailViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate, EGORefreshTableHeaderDelegate> {
+@interface DeleteMailViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate, EGORefreshTableHeaderDelegate, UIAlertViewDelegate> {
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
-
+    BOOL editFlag;
+    NSString *deleteList;
 }
 
 @property (nonatomic, strong) NSMutableArray *mailList;
+@property (nonatomic) BOOL editFlag;
+@property (retain, nonatomic) NSString *deleteList;
 
 @end

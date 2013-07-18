@@ -8,6 +8,7 @@
 
 #import "NewMainViewController.h"
 #import "PopoverContentViewController.h"
+#import "Employee.h"
 
 @interface NewMainViewController ()
 
@@ -52,6 +53,13 @@
 	self.popover = [[UIPopoverController alloc] initWithContentViewController:content];
 	self.popover.popoverContentSize = CGSizeMake(320., 320.);
 	self.popover.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSArray *empList = [Employee getAllEmployee];
+    if ([empList count] == 0) {
+        [Employee synchronizeEmployee];
+    }
 }
 
 - (void)didReceiveMemoryWarning

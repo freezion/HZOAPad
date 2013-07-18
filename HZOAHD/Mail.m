@@ -28,6 +28,7 @@
 @synthesize cleanHtml;
 @synthesize ccList;
 @synthesize ccListName;
+@synthesize isChecked;
 
 + (NSString *)serviceAddEmail:(Mail *) mail {
     NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/addEmailJSON"];
@@ -202,7 +203,7 @@
                 // copyID
                 NSString *copyIDField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 17)];
                 mail.ccList = copyIDField;
-                
+                mail.isChecked = NO;
                 [dataList addObject:mail];
             }
             sqlite3_finalize(statement);
@@ -282,7 +283,7 @@
                 // copyID
                 NSString *copyIDField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 17)];
                 mail.ccList = copyIDField;
-                
+                mail.isChecked = NO;
                 [dataList addObject:mail];
             }
             sqlite3_finalize(statement);

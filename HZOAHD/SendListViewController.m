@@ -19,6 +19,8 @@
 @implementation SendListViewController
 
 @synthesize mailList;
+@synthesize editFlag;
+@synthesize deleteList;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,7 +37,16 @@
     
     UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:
                                       UIBarButtonSystemItemAdd target:self action:@selector(addMail:)];
-    self.navigationItem.rightBarButtonItem = addButtonItem;
+    
+    UIBarButtonItem *trashButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:
+                                        UIBarButtonSystemItemTrash target:self action:@selector(editMode)];
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 80.0f, 40.0f)];
+    //[toolbar setBarStyle:UIBarStyleDefault];
+    [toolbar setTranslucent:YES];
+    NSArray* buttons = [NSArray arrayWithObjects:trashButtonItem, addButtonItem, nil];
+    [toolbar setItems:buttons animated:NO];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
     if (_refreshHeaderView == nil) {
 		
 		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
@@ -50,6 +61,13 @@
     NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
     mailList = [Mail getLocalSenderEmail:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
     //NSLog(@"mailList == %@", mailList);
+}
+
+-(void)refreshTableView {
+    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+    [Mail synchronizeEmail:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
+    mailList = [Mail getLocalSenderEmail:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
+	[self.tableView reloadData];
 }
 
 - (void)viewDidUnload
@@ -73,6 +91,53 @@
     AddMailViewController *addViewController = [storyborad instantiateViewControllerWithIdentifier:@"AddMailViewController"];
     UINavigationController *tmpNavController = [[UINavigationController alloc] initWithRootViewController:addViewController];
     [self.navigationController presentModalViewController:tmpNavController animated:YES];
+}
+
+- (void) editMode {
+    if (editFlag) {
+        NSMutableArray *deleteMail = [[NSMutableArray alloc] init];
+        deleteList = @"";
+        for (int i = 0; i < [mailList count]; i ++) {
+            Mail *mail = [mailList objectAtIndex:i];
+            if (mail.isChecked) {
+                [deleteMail addObject:mail];
+            }
+        }
+        
+        for (int i = 0; i < [deleteMail count]; i ++) {
+            Mail *mail = [deleteMail objectAtIndex:i];
+            deleteList = [deleteList stringByAppendingFormat:@"%@", mail.ID];
+            if (i != [deleteMail count] - 1) {
+                deleteList = [deleteList stringByAppendingString:@","];
+            }
+        }
+        
+        if (![deleteList isEqualToString:@""]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要删除这些邮件吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+            alert.tag = 0;
+            [alert show];
+        } else {
+            editFlag = NO;
+            [self.tableView reloadData];
+        }
+    } else {
+        editFlag = YES;
+        [self.tableView reloadData];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        editFlag = NO;
+        [self refreshTableView];
+    } else {
+        editFlag = NO;
+        if (alertView.tag == 0) {
+            NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+            [Mail deleteReceiveEmailById:deleteList withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
+            [self refreshTableView];
+        }
+    }
 }
 
 #pragma mark - Table view data source
@@ -100,12 +165,22 @@
 	cell.dateLabel.text = mail.date;
     cell.senderLabel.text = mail.senderName;
     cell.importLabel.text = mail.importName;
+    cell.readImageView.image = [UIImage imageNamed:@""];
     if ([mail.fileId isEqualToString:@""]) {
         [cell.attachmentImageView setImage:[UIImage imageNamed:@""]];
     } else {
         [cell.attachmentImageView setImage:[UIImage imageNamed:@"attachment"]];
     }
     
+    if (editFlag) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (mail.isChecked) {
+            cell.readImageView.image = [UIImage imageNamed:@"Selected1.png"];
+        } else {
+            
+            cell.readImageView.image = [UIImage imageNamed:@"Unselected1.png"];
+        }
+    }
     return cell;
 }
 
@@ -125,16 +200,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
-{
-    NSLog(@"doing!!!!");
-    MailDetailViewController *viewController = [segue destinationViewController];
     Mail *mail = [mailList objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    MailCell *cell = (MailCell *)[tableView cellForRowAtIndexPath:indexPath];
+    UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    MailDetailViewController *viewController = [storyborad instantiateViewControllerWithIdentifier:@"MailDetailViewController"];
     viewController.mail = mail;
     viewController.mailType = @"sender";
+    
+    if (editFlag) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (mail.isChecked) {
+            cell.readImageView.image = [UIImage imageNamed:@"Unselected.png"];
+            mail.isChecked = NO;
+        } else {
+            cell.readImageView.image = [UIImage imageNamed:@"Selected.png"];
+            mail.isChecked = YES;
+        }
+        
+    } else {
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark -

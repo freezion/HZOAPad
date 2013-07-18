@@ -37,7 +37,8 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(backAction:)];
     
-    NSMutableArray *systemConfigs = [SystemConfig loadSystemConfigById:@"2"];
+    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+    NSMutableArray *systemConfigs = [SystemConfig loadSystemConfigById:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
     self.values = systemConfigs;
     //    if (selectedIndex == 0) {
     //        cellNormal.accessoryType = UITableViewCellAccessoryCheckmark;

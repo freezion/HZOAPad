@@ -54,8 +54,7 @@
 {
     [super viewDidLoad];
     typeId = @"0";
-    NSMutableArray *systemConfigs = [SystemConfig loadSystemConfigById:@"2"];
-    self.values = systemConfigs;
+    
     
 	[self.view setBackgroundColor:[UIColor whiteColor]];
 	[self.navigationItem setTitle:@"新邮件"];
@@ -63,6 +62,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+    
+    NSMutableArray *systemConfigs = [SystemConfig loadSystemConfigById:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
+    self.values = systemConfigs;
     [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(handleTokenFieldFrameDidChange:)
 												 name:JSTokenFieldFrameDidChangeNotification
