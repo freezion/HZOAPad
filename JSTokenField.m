@@ -29,6 +29,7 @@
 #import "JSTokenField.h"
 #import "JSTokenButton.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Employee.h"
 
 NSString *const JSTokenFieldFrameDidChangeNotification = @"JSTokenFieldFrameDidChangeNotification";
 NSString *const JSTokenFieldNewFrameKey = @"JSTokenFieldNewFrameKey";
@@ -156,6 +157,13 @@ NSString *const JSDeletedTokenKey = @"JSDeletedTokenKey";
     for (JSTokenButton *token in [_tokens reverseObjectEnumerator]) {
         if (test(token)) {
             tokenToRemove = token;
+            if (_textField.tag == 0) {
+                [Employee deleteTmpContact:token.representedObject withForCC:@"0"];
+            } else if (_textField.tag == 1) {
+                [Employee deleteTmpContact:token.representedObject withForCC:@"1"];
+            } else {
+                [Employee deleteTmpContact:token.representedObject withForCC:@"2"];
+            }
             break;
         }
     }

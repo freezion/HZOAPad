@@ -1035,14 +1035,6 @@
     return events;
 }
 
-+ (void)requestFailed:(ASIHTTPRequest *)request
-{
-    NSError *error = [request error];
-    NSLog(@"%@",error.localizedDescription);
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:error.localizedDescription delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//    [alert show];
-}
-
 + (void)createCalendarTable {
     NSString *databasePath = [NSUtil getDBPath];
     sqlite3 *hzoaDB;
@@ -1144,6 +1136,14 @@
     } else {
         NSLog(@"创建/打开数据库失败");
     }
+}
+
++ (void)requestFailed:(ASIHTTPRequest *)request
+{
+    [UserKeychain delete:KEY_LOGINID_PASSWORD];
+    NSError *error = [request error];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[@"没有网络连接. error : " stringByAppendingString:error.localizedDescription] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end

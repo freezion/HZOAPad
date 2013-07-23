@@ -72,7 +72,7 @@
     Employee *employee = [self.mostList objectAtIndex:indexPath.row];
 //    [delegateInvitEmployee showContact:employee._id theName:employee._name];
     [delegateMail showContact:employee._id theName:employee._name withButton:buttonId];
-    [delegateSelectContact showContact:employee._id theName:employee._name];
+    [delegateSelectContact showContact:employee._id theName:employee._name withButtonId:buttonId];
 //    [delegateReply showContact:employee._id theName:employee._name withButton:buttonId];
 //    [delegateForward showContact:employee._id theName:employee._name withButton:buttonId];
     [delegateNotice showContact:employee._id theName:employee._name];

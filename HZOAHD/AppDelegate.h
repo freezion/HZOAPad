@@ -11,7 +11,7 @@
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUI.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate> {
     UIWindow *window;
     NSString *databasePath;
     sqlite3 *hzoaDB;

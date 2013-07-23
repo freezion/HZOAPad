@@ -121,7 +121,7 @@
     NSString *contactId = cell.textTwo.text;
     [delegate showContact:contactId theName:cell.textOne.text];
     [delegateMail showContact:contactId theName:cell.textOne.text withButton:buttonId];
-    [delegateContact showContact:contactId theName:cell.textOne.text];
+    [delegateContact showContact:contactId theName:cell.textOne.text withButtonId:buttonId];
     [self dismissModalViewControllerAnimated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -14,7 +14,7 @@
 @protocol AddMailDelegate <NSObject>
 
 - (void) showContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *) buttonId;
-
+- (void) deleteContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId;
 @end
 
 typedef enum {
@@ -32,8 +32,6 @@ typedef enum {
     UIButton *buttonChoose;
 	CGFloat keyboardHeight;
     NSMutableArray *removeList;
-    NSMutableDictionary *listContactId;
-    NSMutableDictionary *listCCContactId;
     NSMutableArray *values;
     NSString *typeId;
     NSMutableArray *_toRecipients;
@@ -68,8 +66,6 @@ typedef enum {
 @property (nonatomic, retain) IBOutlet UIButton *bccButton;
 @property (nonatomic, retain) IBOutlet UITextView *messageText;
 @property (nonatomic, retain) IBOutlet UIButton *buttonChoose;
-@property (nonatomic, retain) NSMutableDictionary *listContactId;
-@property (nonatomic, retain) NSMutableDictionary *listCCContactId;
 @property (nonatomic, retain) NSMutableArray *removeList;
 @property (nonatomic, retain) NSMutableArray *values;
 @property (nonatomic, retain) NSString *typeId;

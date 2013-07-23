@@ -28,6 +28,15 @@
 @synthesize emailMessage;
 @synthesize activeFlag;
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self goAppStore];
+}
+
+-(void) goAppStore {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/hua-zhong-zi-xun/id575478439?mt=8"]];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -35,7 +44,16 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+    NSString *currVersion = [SystemConfig getVersion];
+    if (![version isEqualToString:currVersion] && currVersion != nil && ![currVersion isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"App的版本过低请下载新版本."
+                                                       delegate:self
+                                              cancelButtonTitle:@"前往下载"
+                                              otherButtonTitles:nil, nil];
+        [alert performSelector:@selector(show) withObject:nil afterDelay:0.0];
+    }
     NSString *docsDir;
     NSArray *dirPaths;
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -48,7 +66,7 @@
         [Employee createMostContactTable];
         [Employee createEmployeeTable];
         [Notice createNoticeTable];
-        //[Calendar createCalendarTable];
+        [Employee createTmpContactTable];
         [Mail createEmailTable];
         [MyFolder createMyFolderTable];
         [SystemConfig createNotificationTable];

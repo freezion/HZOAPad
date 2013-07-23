@@ -48,15 +48,58 @@
     return [self.content objectAtIndex:row];
 }
 
-- (void)didSelectContentCellAtRow:(NSUInteger)row  withButtonId:(UIButton *) buttonId {
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow]
-                                  animated:YES];
+- (void)didSelectContentCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId withIndexPath:(NSIndexPath *) indexPath {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     Employee *employee = [self.content objectAtIndex:row];
-    [delegateMail showContact:employee._id theName:employee._name withButton:buttonId];
-    [delegateSelectContact showContact:employee._id theName:employee._name];
-    [delegateFrequentContact addFrequentContact:employee._id :employee._name];
-    [delegateNotice showContact:employee._id theName:employee._name];
-    [delegateSwitchView dismissViewController];
+    BOOL flag = YES;
+    UITableViewCell *thisCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (thisCell.accessoryType == UITableViewCellAccessoryNone) {
+        thisCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+    }else{
+        thisCell.accessoryType = UITableViewCellAccessoryNone;
+        if (buttonId.tag == 0) {
+            [Employee deleteTmpContact:employee._id withForCC:@"0"];
+        } else if (buttonId.tag == 1) {
+            [Employee deleteTmpContact:employee._id withForCC:@"1"];
+        } else {
+            [Employee deleteTmpContact:employee._id withForCC:@"2"];
+        }
+        flag = NO;
+    }
+    NSArray *selectedList = [[NSArray alloc] init];
+    if (buttonId.tag == 0) {
+        selectedList = [Employee getTmpContactByCC:@"0"];
+    } else if (buttonId.tag == 1) {
+        selectedList = [Employee getTmpContactByCC:@"1"];
+    } else {
+        selectedList = [Employee getTmpContactByCC:@"2"];
+    }
+    if (selectedList) {
+        for (int i = 0; i < selectedList.count; i ++) {
+            Employee *tmpEmployee = [selectedList objectAtIndex:i];
+            if ([tmpEmployee._id isEqualToString:employee._id]) {
+                flag = NO;
+                break;
+            }
+        }
+    }
+    if (flag) {
+        [delegateMail showContact:employee._id theName:employee._name withButton:buttonId];
+        [delegateSelectContact showContact:employee._id theName:employee._name withButtonId:buttonId];
+    } else {
+        [delegateMail deleteContact:employee._id theName:employee._name withButton:buttonId];
+        [delegateSelectContact deleteContact:employee._id theName:employee._name withButton:buttonId];
+    }
+    if (delegateFrequentContact) {
+        [delegateFrequentContact addFrequentContact:employee._id :employee._name];
+        [delegateSwitchView dismissViewController];
+    }
+    //[delegateMail showContact:employee._id theName:employee._name withButton:buttonId];
+    //[delegateSelectContact showContact:employee._id theName:employee._name];
+    
+    //[delegateNotice showContact:employee._id theName:employee._name];
+    //[delegateSwitchView dismissViewController];
 }
 
 - (void)dealloc {

@@ -37,7 +37,7 @@
     [super viewDidLoad];
     self.title = @"选择联系人";
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(doCancel)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(doCancel)];
     self.navigationItem.leftBarButtonItem=cancelButton;
     
     if (status!=1) {

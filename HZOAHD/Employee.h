@@ -25,6 +25,7 @@
     NSString *_sex;
     NSString *_partyId;
     NSString *_partyName;
+    NSString *_forCC;
 }
 
 @property (nonatomic, retain) NSString *_id;
@@ -39,6 +40,7 @@
 @property (nonatomic, retain) NSString *_sex;
 @property (nonatomic, retain) NSString *_partyId;
 @property (nonatomic, retain) NSString *_partyName;
+@property (nonatomic, retain) NSString *_forCC;
 
 + (void)synchronizeEmployee;
 + (void)insertEmployee:(Employee *) employee;
@@ -51,5 +53,11 @@
 + (void)insertMostContact:(Employee *) employee;
 + (void)deleteMostContact:(Employee *) employee;
 + (NSMutableArray *) getAllMostContact;
+
++ (void)createTmpContactTable;
++ (NSMutableArray *) getTmpContactByCC:(NSString *) forCC;
++ (void)insertTmpContact:(Employee *) employee;
++ (void)deleteTmpContact:(NSString *) employeeId withForCC:(NSString *) forCC;
++ (void)deleteAllTmpContact;
 
 @end

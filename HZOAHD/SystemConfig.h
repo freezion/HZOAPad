@@ -38,5 +38,6 @@
 + (NSMutableArray *) loadSystemConfig:(NSData *) responseData withSync:(BOOL) flag;
 + (NSString *) getVersion;
 + (NSMutableArray *) getNoticeType:(NSString *) employeeId;
++ (NSString *) getVersion;
 
 @end

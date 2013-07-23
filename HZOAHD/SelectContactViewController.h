@@ -12,7 +12,8 @@
 @class SelectContactViewController;
 
 @protocol SelectContactDelegate <NSObject>
-- (void) showContact:(NSString *) contactId theName:(NSString *) contactName;
+- (void) showContact:(NSString *) contactId theName:(NSString *) contactName withButtonId:(UIButton *) buttonId;
+- (void) deleteContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId;
 @end
 
 @protocol SelectContactViewControllerDelegate <NSObject>

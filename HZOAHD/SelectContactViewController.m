@@ -49,6 +49,7 @@
 	[tokenFieldView.tokenField setTokenizingCharacters:[NSCharacterSet characterSetWithCharactersInString:@",;."]]; // Default is a comma
 	
 	UIButton * addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    addButton.tag = 2;
 	[addButton addTarget:self action:@selector(showContactsPicker:) forControlEvents:UIControlEventTouchUpInside];
 	[tokenFieldView.tokenField setRightView:addButton];
 	[tokenFieldView.tokenField addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidBegin];
@@ -88,7 +89,7 @@
 	[self resizeViews];
 }
 
-- (void) showContact:(NSString *) contactId theName:(NSString *) contactName 
+- (void) showContact:(NSString *) contactId theName:(NSString *) contactName withButtonId:(UIButton *)buttonId
 {
     TIToken * token = [tokenFieldView.tokenField addTokenWithTitle:contactName];
     [token setAccessoryType:TITokenAccessoryTypeDisclosureIndicator];
@@ -98,7 +99,11 @@
     [token setIdValue:contactId];
     // If the size of the token might change, it's a good idea to layout again.
     [tokenFieldView.tokenField layoutTokensAnimated:YES]; 
-    
+    Employee *employee = [[Employee alloc] init];
+    employee._id = contactId;
+    employee._name = contactName;
+    employee._forCC = @"2";
+    [Employee insertTmpContact:employee];
     [token setTintColor:((tokenCount % 3) == 0 ? [TIToken redTintColor] : ((tokenCount % 2) == 0 ? [TIToken greenTintColor] : [TIToken blueTintColor]))];
     
     [self.listContactId setObject:contactId forKey:[NSString stringWithFormat:@"%d", tokenCount]];
@@ -108,8 +113,19 @@
     UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SwitchViewController *switchViewController=[storyborad instantiateViewControllerWithIdentifier:@"SwitchViewController"];
     switchViewController.delegateSelectContact=self;
+    switchViewController.buttonId = sender;
     UINavigationController *swichNavController = [[UINavigationController alloc] initWithRootViewController:switchViewController];
     [self.navigationController presentModalViewController:swichNavController animated:YES];
+}
+
+- (void) deleteContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId {
+    NSArray *arrayTokens = [tokenFieldView.tokenField tokens];
+    for (TIToken *token in arrayTokens) {
+        if ([token.idValue isEqualToString:contactId]) {
+            [tokenFieldView.tokenField removeToken:token];
+        }
+    }
+
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {

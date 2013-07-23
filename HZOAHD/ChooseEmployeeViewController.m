@@ -124,7 +124,7 @@
     
     GCRetractableSectionController *sectionController = [self.retractableControllers objectAtIndex:indexPath.section];
     
-    return [sectionController cellForRow:indexPath.row];
+    return [sectionController cellForRow:indexPath.row withButtonId:buttonId];
 }
 
 #pragma mark - Table view delegate
@@ -140,7 +140,7 @@
     
     
     GCRetractableSectionController *sectionController = [self.retractableControllers objectAtIndex:indexPath.section];
-    return [sectionController didSelectCellAtRow:indexPath.row withButtonId:buttonId];
+    return [sectionController didSelectCellAtRow:indexPath.row withButtonId:buttonId withIndexPath:indexPath];
 }
 
 @end

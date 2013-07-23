@@ -30,7 +30,7 @@
     if ([cal rangeOfUnit:NSMonthCalendarUnit startDate:&beginning interval:NULL forDate:curDate])
         return beginning;
     return nil;
-}
+} 
 
 + (NSDate *)endOfMonth {
     NSDate *curDate = [self beginningOfMonth];

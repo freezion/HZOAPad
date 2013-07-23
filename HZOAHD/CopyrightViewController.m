@@ -38,10 +38,9 @@
     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     appVersionLbl.text=app_Version;
     
-    double app_Ver=[app_Version doubleValue];
     NSString *currVersion = [SystemConfig getVersion];
     
-    if (app_Ver<[currVersion doubleValue]) {
+    if (![app_Version isEqualToString:currVersion]) {
         [urlButton setTitle:@"点击下载新版本" forState:UIControlStateNormal];
     }else{
         

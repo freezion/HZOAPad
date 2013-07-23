@@ -30,7 +30,7 @@
     id<AddMailDelegate> delegateMail;
     id<AddNoticeDelegate> delegateNotice;
     id<SelectContactDelegate> delegateSelectContact;
-    id<FrequentContactDelegate>delegateFrequentContact;
+    id<FrequentContactDelegate> delegateFrequentContact;
     
 }
 @property (nonatomic, retain) ChooseMostViewController *chooseMostViewController;

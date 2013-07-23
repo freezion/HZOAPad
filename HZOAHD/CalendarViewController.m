@@ -37,7 +37,8 @@ NSString *eventStoreId = @"";
 {
     [super viewDidLoad];
     self.eventStore = [[EKEventStore alloc] init];
-    
+    [Employee synchronizeEmployee];
+    [Employee deleteAllTmpContact];
     if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)])
     {
         // the selector is available, so we must be on iOS 6 or newer
@@ -429,8 +430,8 @@ NSString *eventStoreId = @"";
         cell.endTextLabel.hidden = YES;
         cell.alldayImage.image = [UIImage imageNamed:@"24h.png"];
     } else {
-        cell.startTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"HH:mm"];
-        cell.endTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"HH:mm"];
+        cell.startTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"HH:mm cccc"];
+        cell.endTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"HH:mm cccc"];
         cell.alldayImage.image = [UIImage imageNamed:@""];
     }
 	return cell;

@@ -32,7 +32,7 @@
 	if ((self = [super init])) {
         if (![givenViewController respondsToSelector:@selector(tableView)]) {
             //The view controller MUST have a tableView proprety
-            [NSException raise:@"Wrong view controller" 
+            [NSException raise:@"Wrong view controller"
                         format:@"The passed view controller to GCRetractableSectionController must respond to the tableView proprety"];
         }
         
@@ -74,11 +74,11 @@
 #pragma mark -
 #pragma mark Cells
 
-- (UITableViewCell *) cellForRow:(NSUInteger)row {
+- (UITableViewCell *) cellForRow:(NSUInteger)row withButtonId:(UIButton *) buttonId {
 	UITableViewCell* cell = nil;
 	
 	if (row == 0) cell = [self titleCell];
-	else cell = [self contentCellForRow:row - 1];
+	else cell = [self contentCellForRow:row - 1 withButtonId:buttonId];
 	
 	return cell;
 }
@@ -107,24 +107,24 @@
 	return cell;
 }
 
-- (UITableViewCell *) contentCellForRow:(NSUInteger)row {
-//	NSString* contentCellIdentifier = [NSStringFromClass([self class]) stringByAppendingString:@"content"];
-//	
-//	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
-//	if (cell == nil) {
-//		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:contentCellIdentifier] autorelease];
-//		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//	}
-//	
-//	cell.textLabel.text = [self titleContentForRow:row];
-//	
-//	return cell;
+- (UITableViewCell *) contentCellForRow:(NSUInteger)row withButtonId:(UIButton *) buttonId {
+    //	NSString* contentCellIdentifier = [NSStringFromClass([self class]) stringByAppendingString:@"content"];
+    //
+    //	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
+    //	if (cell == nil) {
+    //		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:contentCellIdentifier] autorelease];
+    //		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    //	}
+    //
+    //	cell.textLabel.text = [self titleContentForRow:row];
+    //
+    //	return cell;
     
     static NSString *CellIdentifier = @"ContactCell";
     
 	ContactCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[ContactCell alloc] initWithStyle:UITableViewCellStyleDefault 
+		cell = [[ContactCell alloc] initWithStyle:UITableViewCellStyleDefault
                                   reuseIdentifier:CellIdentifier];
 	}
     
@@ -132,7 +132,27 @@
     Employee *employee = [self titleContentForEmployee:row];
 	cell.textOne.text = employee._name;
     cell.textTwo.text = employee._id;
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
     
+    NSArray *selectedList = [[NSArray alloc] init];
+    
+    if (buttonId.tag == 0) {
+        selectedList = [Employee getTmpContactByCC:@"0"];
+    } else if (buttonId.tag == 1) {
+        selectedList = [Employee getTmpContactByCC:@"1"];
+    } else {
+        selectedList = [Employee getTmpContactByCC:@"2"];
+    }
+    
+    if (selectedList) {
+        for (int i = 0; i < selectedList.count; i ++) {
+            Employee *tmpEmployee = [selectedList objectAtIndex:i];
+            if ([tmpEmployee._id isEqualToString:employee._id]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                break;
+            }
+        }
+    }
 	return cell;
 }
 
@@ -142,12 +162,12 @@
 		path = @"UpAccessory";
         if (self.titleAlternativeTextColor == nil) cell.textLabel.textColor =  [UIColor colorWithRed:0.191 green:0.264 blue:0.446 alpha:1.000];
         else cell.textLabel.textColor = self.titleAlternativeTextColor;
-	}	
+	}
 	else {
 		path = @"DownAccessory";
 		cell.textLabel.textColor = (self.titleTextColor == nil ? [UIColor blackColor] : self.titleTextColor);
 	}
-	
+	//cell.backgroundColor = [UIColor grayColor];
 	UIImage* accessoryImage = [UIImage imageNamed:path];
 	UIImage* whiteAccessoryImage = [UIImage imageNamed:[[path stringByDeletingPathExtension] stringByAppendingString:@"White"]];
 	
@@ -168,12 +188,12 @@
 #pragma mark -
 #pragma mark Select Cell
 
-- (void) didSelectCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId {
+- (void) didSelectCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId withIndexPath:(NSIndexPath *) indexPath {
 	if (row == 0) {
         [self didSelectTitleCell];
     }
 	else {
-        [self didSelectContentCellAtRow:row - 1  withButtonId:buttonId];
+        [self didSelectContentCellAtRow:row - 1  withButtonId:buttonId withIndexPath:indexPath];
     }
 }
 
@@ -205,8 +225,8 @@
 
 - (void) didSelectContentCellAtRow:(NSUInteger)row {}
 
-- (void) didSelectContentCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId {
-
+- (void) didSelectContentCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId withIndexPath:(NSIndexPath *) indexPath {
+    
 }
 
 @end
