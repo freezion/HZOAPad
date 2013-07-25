@@ -36,6 +36,7 @@
     NSString *frontFlag;
     UITableViewCell *senderCell;
     UITableViewCell *privateCell;
+    NSString *calendarType;
 }
 
 
@@ -61,6 +62,7 @@
 @property (nonatomic, retain) NSString *calenderId;
 @property (nonatomic, retain) Calendar *calendarObj;
 @property (nonatomic, retain) NSString *frontFlag;
+@property (nonatomic, retain) NSString *calendarType;
 
 - (IBAction)acceptEvent:(id) sender;
 -(IBAction)tapedMessageButton:(id)sender;

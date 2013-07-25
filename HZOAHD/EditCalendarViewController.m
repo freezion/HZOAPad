@@ -36,6 +36,7 @@
 @synthesize rejectButton;
 @synthesize senderCell;
 @synthesize privateCell;
+@synthesize calendarType;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -157,6 +158,9 @@
         rejectButton.tintColor = [UIColor redColor];
         [rejectButton setShadow:[UIColor blackColor] opacity:0.8 offset:CGSizeMake(0, 1) blurRadius: 4];
         rejectButton.hidden = NO;
+    }
+    if (![calendarType isEqualToString:@"ConformPick"]) {
+        self.buttonCell.hidden = YES;
     }
     
 }

@@ -400,6 +400,7 @@ NSString *eventStoreId = @"";
     Calendar *calendarObj = [self.eventsList objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     EditCalendarViewController *editCalendarViewController = segue.destinationViewController;
     editCalendarViewController.calenderId = calendarObj.ID;
+    editCalendarViewController.calendarType = myCalendarType;
 }
 
 #pragma mark - Table view data source
