@@ -431,8 +431,8 @@ NSString *eventStoreId = @"";
         cell.endTextLabel.hidden = YES;
         cell.alldayImage.image = [UIImage imageNamed:@"24h.png"];
     } else {
-        cell.startTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"HH:mm cccc"];
-        cell.endTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"HH:mm cccc"];
+        cell.startTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy-MM-dd HH:mm cccc"];
+        cell.endTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy-MM-dd HH:mm cccc"];
         cell.alldayImage.image = [UIImage imageNamed:@""];
     }
 	return cell;
